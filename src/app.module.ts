@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { MailModule } from './mail/mail.module';
 import { ConfigModule } from '@nestjs/config';
+import { CrudModule } from './crud/crud.module';
 
 @Module({
   imports: [TypeOrmModule.forRoot({
@@ -17,6 +18,7 @@ import { ConfigModule } from '@nestjs/config';
     synchronize: true,
     logging: true,
   }),
+    CrudModule,
     MailModule,
     ConfigModule.forRoot({
       isGlobal: true,
