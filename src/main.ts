@@ -1,3 +1,4 @@
+import { ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { microserviceConfig } from './microserviceConfig';
@@ -15,7 +16,8 @@ async function bootstrap() {
   app.enableCors();
   app.useGlobalPipes(
       new ValidationPipe({
-        transform: true
+        transform: true,
+          whitelist: true,
       }),
   );
   app.connectMicroservice(microserviceConfig);
