@@ -4,7 +4,8 @@ import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
 @Module({
-  imports: [TypeOrmModule.forRoot({
+  imports: [
+    TypeOrmModule.forRoot({
     type: 'mysql',
     host: 'localhost',
     port: 3306,
@@ -14,7 +15,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
     autoLoadEntities: true,
     synchronize: true,
     logging: true,
-  }),],
+  }),
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
